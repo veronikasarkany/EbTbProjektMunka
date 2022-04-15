@@ -22,7 +22,7 @@ namespace bejelentkezes
         public void fillcombobox()
         {
             //Állatok ID mező rész
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = " select * from Allatok";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -53,7 +53,7 @@ namespace bejelentkezes
             dTpBdate.CustomFormat = "yyyy-MM-dd";
             
 
-            SqlConnection conModAllat = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conModAllat = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
 
                 conModAllat.Open();
@@ -83,7 +83,7 @@ namespace bejelentkezes
         {
             //Mentés úgy néz ki működik
 
-            SqlConnection conNewAllat = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conNewAllat = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             dTpIvDate.Format = DateTimePickerFormat.Custom;
             dTpIvDate.CustomFormat = "yyyy-MM-dd";
             dTpBdate.Format = DateTimePickerFormat.Custom;
@@ -128,7 +128,7 @@ namespace bejelentkezes
         {
              
             //Itt tölti be az adatbázist, majd keresi ki az Állatok adatait.
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = "select * from Allatok where AllatID = '" + comboBox1.Text + "'; ";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -178,7 +178,7 @@ namespace bejelentkezes
         private void buttonF3Keres_Click(object sender, EventArgs e)
         {
             // -Állat Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             
             SqlCommand cmd = new SqlCommand("SELECT * FROM Allatok WHERE AllatID=@AllatID", con);
 

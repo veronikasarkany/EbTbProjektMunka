@@ -44,7 +44,7 @@ namespace bejelentkezes
 
 
 
-            SqlConnection conRegister = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conRegister = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
 
             conRegister.Open();
@@ -106,7 +106,7 @@ namespace bejelentkezes
 
             textBox14.Text = randomnum.ToString();
 
-            SqlConnection conRegister = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conRegister = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             conRegister.Open();
 
             SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM Allatok WHERE (AllatID = @AllatID)", conRegister);
@@ -138,7 +138,7 @@ namespace bejelentkezes
         private void buttonF8GID_Click(object sender, EventArgs e)
         {
             // -Gazdi Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             
             SqlCommand cmd = new SqlCommand("SELECT * from Gazdik where GazdiID=@GazdiID", con);
 

@@ -37,7 +37,7 @@ namespace bejelentkezes
         private void buttonF3K_Click(object sender, EventArgs e)
         {
             //-Keresés Gomb- 
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from Befizetesek where GazdiID=@GazdiID", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -101,7 +101,7 @@ namespace bejelentkezes
         private void button1_Click(object sender, EventArgs e)
         {
             //-Módosítás Gomb- Olyan sorrendbe beírni ahogy a táblázat oszlopai vannak! 
-            SqlConnection conBefiz = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conBefiz = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
 
             conBefiz.Open();
@@ -124,7 +124,7 @@ namespace bejelentkezes
         {
             //-Új bejegyzés, Mentés gomb- Idegen kulcsot ki kellett venni ahhoz, hogy működjön, így most menti az adatokt az adatbázisba!
             
-            SqlConnection conNewBefizet = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conNewBefizet = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
             //dátum formázást  DateTimePicker -így töltődik be megfelelően az adatbázisba a dátum
             datumDateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -159,7 +159,7 @@ namespace bejelentkezes
         private void btnF7All_Click(object sender, EventArgs e)
         {
             //-Összes Gomb-
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from Befizetesek", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -180,7 +180,7 @@ namespace bejelentkezes
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             //-Gazdi textSearch Box-
-            SqlConnection con2 = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql2 = "select * from Befizetesek WHERER GazdiID = '" + txtSearch.Text + "'; ";
             SqlCommand cmd2 = new SqlCommand(sql2, con2);
             SqlDataReader myreader4;

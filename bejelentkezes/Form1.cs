@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace bejelentkezes
 {
@@ -18,13 +19,11 @@ namespace bejelentkezes
             InitializeComponent();
         }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
+        
         private void button1_Click(object sender, EventArgs e)
         {
             //Első variácó a bejelentkezésre
-            
+            /*
             if (txtUserName.Text == "Diak" && txtpassword.Text == "Almafa")
             {
                 new Form2().Show();
@@ -43,16 +42,18 @@ namespace bejelentkezes
                 /*MessageBox.Show("A megadott felhasználónév vagy jelszó helytelen, próbálja újra");
                 txtUserName.Clear();
                 txtpassword.Clear();
-                txtUserName.Focus();*/
-            }
-            
+                txtUserName.Focus();
+            }*/
+
 
             //Második variációs bejelentkezés
-            /*
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter();
             con.Open();
-            string login = "SELECT * FROM tbl_users WHERE username= '" + txtUserName.Text + "' and password= '" + txtpassword.Text + "'";
-            cmd = new OleDbCommand(login, con);
-            OleDbDataReader dr = cmd.ExecuteReader();
+                string login = "SELECT * FROM tbl_users WHERE username= '" + txtUserName.Text + "' and password= '" + txtpassword.Text + "'";
+                cmd = new SqlCommand(login, con);
+                SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read() == true)
             {
@@ -67,7 +68,7 @@ namespace bejelentkezes
                 txtpassword.Text = "";
                 txtUserName.Focus();
             }
-            */
+            con.Close();
 
 
         }

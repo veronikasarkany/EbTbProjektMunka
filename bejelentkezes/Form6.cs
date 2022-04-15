@@ -41,7 +41,7 @@ namespace bejelentkezes
 
         public void fillcombobox()
         {
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = "select * from Gazdik";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -67,7 +67,7 @@ namespace bejelentkezes
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = "select * from Gazdik where GazdiId = '" + comboBox1.Text + "'; ";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -107,7 +107,7 @@ namespace bejelentkezes
         {
             // Módosítás még egyenlőre nem működik
 
-            SqlConnection conModGazdi = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conModGazdi = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
 
             conModGazdi.Open();
@@ -128,7 +128,7 @@ namespace bejelentkezes
         {
             //Mentés egyenlőre működik, de először az Állat adatait kell felvinni, csak utána lehet a Gazdit, mivel összekötettésben vannak
 
-            SqlConnection conNewGazdi = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection conNewGazdi = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
 
 
             conNewGazdi.Open();
@@ -145,7 +145,7 @@ namespace bejelentkezes
         private void buttonF3Keres_Click(object sender, EventArgs e)
         {
             // -Gazdi Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             //con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from Gazdik where GazdiID=@GazdiID", con);
             

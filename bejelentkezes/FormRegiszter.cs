@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace bejelentkezes
 {
@@ -19,9 +20,9 @@ namespace bejelentkezes
                     
         }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataAdapter da = new SqlDataAdapter();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,7 +35,7 @@ namespace bejelentkezes
             {
                 con.Open();
                 string register = "INSERT INTO tbl_users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "')";
-                cmd = new OleDbCommand(register, con);
+                cmd = new SqlCommand(register, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 

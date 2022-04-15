@@ -23,7 +23,7 @@ namespace bejelentkezes
         public void fillcombobox()
         {
             //Állatok ID mező rész
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = " select * from Allatok";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -76,7 +76,7 @@ namespace bejelentkezes
             dateTPIvDate.CustomFormat = "yyyy-MM-dd";
 
             //Itt tölti be az adatbázist, majd keresi ki az Állatok adatait.
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql = "select * from Allatok where AllatID = '" + comboBox1.Text + "'; ";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -121,7 +121,7 @@ namespace bejelentkezes
 
             // elvileg betölti a Gazdi adatokat
             // itt ki akarom próbálni, hogy a Gazdik adatait is betölti e
-            SqlConnection con2 = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = C:\\Users\\Süske\\source\\repos\\bejelentkezes\\AdatbazisKiskedv.mdf; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
             string sql2 = "select * from Gazdik where GazdiID = '" + comboBox1.Text + "'; ";
             SqlCommand cmd2 = new SqlCommand(sql2, con2);
             SqlDataReader myreader2;
