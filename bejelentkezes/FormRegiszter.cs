@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace bejelentkezes
 {
@@ -20,7 +21,7 @@ namespace bejelentkezes
                     
         }
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Program Files (x86)\\Default Company Name\\EbTbSetup\\db_users.mdf;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataAdapter da = new SqlDataAdapter();
 
@@ -80,6 +81,12 @@ namespace bejelentkezes
         {
             new Bejelentkezes().Show();
             this.Hide();
+        }
+
+        private void FormRegiszter_Load(object sender, EventArgs e)
+        {
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.db_usersConnectionString"].ConnectionString;
         }
     }
 }

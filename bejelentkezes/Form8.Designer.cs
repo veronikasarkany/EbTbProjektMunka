@@ -95,7 +95,7 @@
             this.panelF8.Controls.Add(this.tableLayoutPanel1);
             this.panelF8.Controls.Add(this.panel2);
             this.panelF8.Controls.Add(this.labelReg);
-            this.panelF8.Location = new System.Drawing.Point(2, 1);
+            this.panelF8.Location = new System.Drawing.Point(2, 0);
             this.panelF8.MinimumSize = new System.Drawing.Size(748, 698);
             this.panelF8.Name = "panelF8";
             this.panelF8.Size = new System.Drawing.Size(748, 698);
@@ -601,6 +601,7 @@
             this.MinimumSize = new System.Drawing.Size(748, 698);
             this.Name = "Register";
             this.Text = "Form8";
+            this.Load += new System.EventHandler(this.Register_Load);
             this.panelF8.ResumeLayout(false);
             this.panelF8.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);

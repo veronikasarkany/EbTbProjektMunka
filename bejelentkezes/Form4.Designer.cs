@@ -33,8 +33,8 @@
             System.Windows.Forms.Label diagnozisLabel;
             System.Windows.Forms.Label terapiaLabel;
             System.Windows.Forms.Label allatIDLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.panel4 = new System.Windows.Forms.Panel();
             this.datumDTP = new System.Windows.Forms.DateTimePicker();
@@ -43,9 +43,11 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bejegyzesekKezelesekBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbTabelsDataSet = new bejelentkezes.dbTabelsDataSet();
+            this.diagnozisTextBox = new System.Windows.Forms.TextBox();
             this.bejegyzesekKezelesekBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.adatbazisKiskedvDataSet2 = new bejelentkezes.AdatbazisKiskedvDataSet2();
-            this.diagnozisTextBox = new System.Windows.Forms.TextBox();
             this.terapiaTextBox = new System.Windows.Forms.TextBox();
             this.allatIDTextBox = new System.Windows.Forms.TextBox();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -74,12 +76,16 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bejegyzesekKezelesekBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.bejegyzesekKezelesekTableAdapter1 = new bejelentkezes.dbTabelsDataSetTableAdapters.BejegyzesekKezelesekTableAdapter();
             datumLabel = new System.Windows.Forms.Label();
             diagnozisLabel = new System.Windows.Forms.Label();
             terapiaLabel = new System.Windows.Forms.Label();
             allatIDLabel = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -167,29 +173,29 @@
             // 
             this.bejegyzesekKezelesekDataGridView.AutoGenerateColumns = false;
             this.bejegyzesekKezelesekDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bejegyzesekKezelesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bejegyzesekKezelesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.bejegyzesekKezelesekDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bejegyzesekKezelesekDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.bejegyzesekKezelesekDataGridView.DataSource = this.bejegyzesekKezelesekBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bejegyzesekKezelesekDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.bejegyzesekKezelesekDataGridView.DataSource = this.bejegyzesekKezelesekBindingSource1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bejegyzesekKezelesekDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.bejegyzesekKezelesekDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.bejegyzesekKezelesekDataGridView.Location = new System.Drawing.Point(44, 383);
             this.bejegyzesekKezelesekDataGridView.Name = "bejegyzesekKezelesekDataGridView";
@@ -228,15 +234,15 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // bejegyzesekKezelesekBindingSource
+            // bejegyzesekKezelesekBindingSource1
             // 
-            this.bejegyzesekKezelesekBindingSource.DataMember = "BejegyzesekKezelesek";
-            this.bejegyzesekKezelesekBindingSource.DataSource = this.adatbazisKiskedvDataSet2;
+            this.bejegyzesekKezelesekBindingSource1.DataMember = "BejegyzesekKezelesek";
+            this.bejegyzesekKezelesekBindingSource1.DataSource = this.dbTabelsDataSet;
             // 
-            // adatbazisKiskedvDataSet2
+            // dbTabelsDataSet
             // 
-            this.adatbazisKiskedvDataSet2.DataSetName = "AdatbazisKiskedvDataSet2";
-            this.adatbazisKiskedvDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dbTabelsDataSet.DataSetName = "dbTabelsDataSet";
+            this.dbTabelsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // diagnozisTextBox
             // 
@@ -246,6 +252,16 @@
             this.diagnozisTextBox.Name = "diagnozisTextBox";
             this.diagnozisTextBox.Size = new System.Drawing.Size(242, 116);
             this.diagnozisTextBox.TabIndex = 49;
+            // 
+            // bejegyzesekKezelesekBindingSource
+            // 
+            this.bejegyzesekKezelesekBindingSource.DataMember = "BejegyzesekKezelesek";
+            this.bejegyzesekKezelesekBindingSource.DataSource = this.adatbazisKiskedvDataSet2;
+            // 
+            // adatbazisKiskedvDataSet2
+            // 
+            this.adatbazisKiskedvDataSet2.DataSetName = "AdatbazisKiskedvDataSet2";
+            this.adatbazisKiskedvDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // terapiaTextBox
             // 
@@ -424,15 +440,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.bejegyzesekKezelesekBindingNavigatorSaveItem});
-            this.bejegyzesekKezelesekBindingNavigator.Location = new System.Drawing.Point(0, 671);
+            this.bejegyzesekKezelesekBindingNavigatorSaveItem,
+            this.toolStripProgressBar1});
+            this.bejegyzesekKezelesekBindingNavigator.Location = new System.Drawing.Point(0, 667);
             this.bejegyzesekKezelesekBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bejegyzesekKezelesekBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bejegyzesekKezelesekBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bejegyzesekKezelesekBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bejegyzesekKezelesekBindingNavigator.Name = "bejegyzesekKezelesekBindingNavigator";
             this.bejegyzesekKezelesekBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.bejegyzesekKezelesekBindingNavigator.Size = new System.Drawing.Size(748, 27);
+            this.bejegyzesekKezelesekBindingNavigator.Size = new System.Drawing.Size(748, 31);
             this.bejegyzesekKezelesekBindingNavigator.TabIndex = 1;
             this.bejegyzesekKezelesekBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -442,13 +459,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -458,7 +475,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -467,7 +484,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -476,13 +493,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -497,7 +514,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -505,7 +522,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -514,22 +531,31 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // bejegyzesekKezelesekBindingNavigatorSaveItem
             // 
             this.bejegyzesekKezelesekBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bejegyzesekKezelesekBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("bejegyzesekKezelesekBindingNavigatorSaveItem.Image")));
             this.bejegyzesekKezelesekBindingNavigatorSaveItem.Name = "bejegyzesekKezelesekBindingNavigatorSaveItem";
-            this.bejegyzesekKezelesekBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.bejegyzesekKezelesekBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.bejegyzesekKezelesekBindingNavigatorSaveItem.Text = "Save Data";
             this.bejegyzesekKezelesekBindingNavigatorSaveItem.Click += new System.EventHandler(this.bejegyzesekKezelesekBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
+            // 
+            // bejegyzesekKezelesekTableAdapter1
+            // 
+            this.bejegyzesekKezelesekTableAdapter1.ClearBeforeFill = true;
             // 
             // Form4
             // 
@@ -546,6 +572,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bejegyzesekKezelesekBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -598,5 +626,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DateTimePicker datumDTP;
+        private dbTabelsDataSet dbTabelsDataSet;
+        private System.Windows.Forms.BindingSource bejegyzesekKezelesekBindingSource1;
+        private dbTabelsDataSetTableAdapters.BejegyzesekKezelesekTableAdapter bejegyzesekKezelesekTableAdapter1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

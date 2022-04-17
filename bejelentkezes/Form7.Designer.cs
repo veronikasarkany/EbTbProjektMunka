@@ -34,9 +34,12 @@
             System.Windows.Forms.Label rendelkezesreAlloLabel;
             System.Windows.Forms.Label gazdiIDLabel;
             System.Windows.Forms.Label datumLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
             this.panelF7 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnSzamol = new System.Windows.Forms.Button();
             this.datumDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.befizetesekBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,6 +52,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.befizetesekBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbTabelsDataSet2 = new bejelentkezes.dbTabelsDataSet2();
             this.kezelesiKoltsegTextBox = new System.Windows.Forms.TextBox();
             this.gazdiIDTextBox = new System.Windows.Forms.TextBox();
             this.befizetesekOsszTextBox = new System.Windows.Forms.TextBox();
@@ -77,9 +82,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.befizetesekBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.befizetesekTableAdapter1 = new bejelentkezes.dbTabelsDataSet2TableAdapters.BefizetesekTableAdapter();
             befizetesekOsszLabel = new System.Windows.Forms.Label();
             kezelesiKoltsegLabel = new System.Windows.Forms.Label();
             rendelkezesreAlloLabel = new System.Windows.Forms.Label();
@@ -89,6 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingNavigator)).BeginInit();
             this.befizetesekBindingNavigator.SuspendLayout();
@@ -177,6 +183,36 @@
             this.panelF7.Size = new System.Drawing.Size(695, 698);
             this.panelF7.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(397, 284);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 16);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Ft.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(397, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 16);
+            this.label4.TabIndex = 67;
+            this.label4.Text = "Ft.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(397, 165);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 16);
+            this.label2.TabIndex = 66;
+            this.label2.Text = "Ft.";
+            // 
             // btnSzamol
             // 
             this.btnSzamol.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -235,14 +271,14 @@
             // 
             this.befizetesekDataGridView.AutoGenerateColumns = false;
             this.befizetesekDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.befizetesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.befizetesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.befizetesekDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.befizetesekDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
@@ -250,7 +286,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn1});
-            this.befizetesekDataGridView.DataSource = this.befizetesekBindingSource;
+            this.befizetesekDataGridView.DataSource = this.befizetesekBindingSource1;
             this.befizetesekDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.befizetesekDataGridView.Location = new System.Drawing.Point(5, 366);
             this.befizetesekDataGridView.Name = "befizetesekDataGridView";
@@ -299,6 +335,16 @@
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // befizetesekBindingSource1
+            // 
+            this.befizetesekBindingSource1.DataMember = "Befizetesek";
+            this.befizetesekBindingSource1.DataSource = this.dbTabelsDataSet2;
+            // 
+            // dbTabelsDataSet2
+            // 
+            this.dbTabelsDataSet2.DataSetName = "dbTabelsDataSet2";
+            this.dbTabelsDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // kezelesiKoltsegTextBox
             // 
@@ -474,15 +520,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.befizetesekBindingNavigatorSaveItem});
-            this.befizetesekBindingNavigator.Location = new System.Drawing.Point(0, 699);
+            this.befizetesekBindingNavigatorSaveItem,
+            this.toolStripProgressBar1});
+            this.befizetesekBindingNavigator.Location = new System.Drawing.Point(0, 695);
             this.befizetesekBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.befizetesekBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.befizetesekBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.befizetesekBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.befizetesekBindingNavigator.Name = "befizetesekBindingNavigator";
             this.befizetesekBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.befizetesekBindingNavigator.Size = new System.Drawing.Size(702, 27);
+            this.befizetesekBindingNavigator.Size = new System.Drawing.Size(702, 31);
             this.befizetesekBindingNavigator.TabIndex = 1;
             this.befizetesekBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -492,7 +539,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
@@ -581,35 +628,14 @@
             this.befizetesekBindingNavigatorSaveItem.Text = "Save Data";
             this.befizetesekBindingNavigatorSaveItem.Click += new System.EventHandler(this.befizetesekBindingNavigatorSaveItem_Click_1);
             // 
-            // label2
+            // toolStripProgressBar1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(397, 165);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 16);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "Ft.";
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
             // 
-            // label4
+            // befizetesekTableAdapter1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(397, 198);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 16);
-            this.label4.TabIndex = 67;
-            this.label4.Text = "Ft.";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(397, 284);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 16);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Ft.";
+            this.befizetesekTableAdapter1.ClearBeforeFill = true;
             // 
             // Form7
             // 
@@ -628,6 +654,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.befizetesekBindingNavigator)).EndInit();
@@ -684,5 +712,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private dbTabelsDataSet2 dbTabelsDataSet2;
+        private System.Windows.Forms.BindingSource befizetesekBindingSource1;
+        private dbTabelsDataSet2TableAdapters.BefizetesekTableAdapter befizetesekTableAdapter1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

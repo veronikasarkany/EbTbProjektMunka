@@ -62,7 +62,7 @@
             this.panelF6.Controls.Add(this.label1);
             this.panelF6.Controls.Add(this.tableLayoutPanel1);
             this.panelF6.Controls.Add(this.buttonF3Keres);
-            this.panelF6.Location = new System.Drawing.Point(0, 0);
+            this.panelF6.Location = new System.Drawing.Point(0, 1);
             this.panelF6.MinimumSize = new System.Drawing.Size(748, 698);
             this.panelF6.Name = "panelF6";
             this.panelF6.Size = new System.Drawing.Size(748, 698);
@@ -283,6 +283,7 @@
             this.MinimumSize = new System.Drawing.Size(748, 698);
             this.Name = "Form6";
             this.Text = "Form6";
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.panelF6.ResumeLayout(false);
             this.panelF6.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);

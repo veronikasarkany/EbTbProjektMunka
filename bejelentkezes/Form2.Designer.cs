@@ -503,6 +503,7 @@
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EbTb";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelHelp.ResumeLayout(false);
             this.panelNew.ResumeLayout(false);

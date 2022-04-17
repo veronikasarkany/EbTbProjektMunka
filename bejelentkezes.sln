@@ -9,6 +9,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EbTb", "EbTb\EbTb.vdproj", 
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{41358FDF-4C4C-46C5-A517-85419FA9A5AF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EbTbSetup", "EbTbSetup\EbTbSetup.vdproj", "{4D6A45D7-F8C3-42A8-A601-B8983F6C0D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{41358FDF-4C4C-46C5-A517-85419FA9A5AF}.Debug|Any CPU.Build.0 = Release
 		{41358FDF-4C4C-46C5-A517-85419FA9A5AF}.Release|Any CPU.ActiveCfg = Release
 		{41358FDF-4C4C-46C5-A517-85419FA9A5AF}.Release|Any CPU.Build.0 = Release
+		{4D6A45D7-F8C3-42A8-A601-B8983F6C0D5A}.Debug|Any CPU.ActiveCfg = Debug
+		{4D6A45D7-F8C3-42A8-A601-B8983F6C0D5A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

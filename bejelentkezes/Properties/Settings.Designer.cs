@@ -26,11 +26,22 @@ namespace bejelentkezes.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Süske\\source\\repos\\b" +
-            "ejelentkezes\\AdatbazisKiskedv.mdf;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\\\MSSQLLocalDB;AttachDbFilename=d:\\\\bejelentkezes\\\\bejelentk" +
+            "ezes\\\\dbTabels.mdf;Integrated Security=True")]
         public string AdatbazisKiskedvConnectionString {
             get {
                 return ((string)(this["AdatbazisKiskedvConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbTabels.mdf;" +
+            "Integrated Security=True")]
+        public string dbTabelsConnectionString {
+            get {
+                return ((string)(this["dbTabelsConnectionString"]));
             }
         }
     }

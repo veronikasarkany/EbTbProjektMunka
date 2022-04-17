@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace bejelentkezes
 {
@@ -154,8 +148,13 @@ namespace bejelentkezes
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbTabelsDataSet.BejegyzesekKezelesek' table. You can move, or remove it, as needed.
+            this.bejegyzesekKezelesekTableAdapter1.Fill(this.dbTabelsDataSet.BejegyzesekKezelesek);
             // TODO: This line of code loads data into the 'adatbazisKiskedvDataSet2.BejegyzesekKezelesek' table. You can move, or remove it, as needed.
-            this.bejegyzesekKezelesekTableAdapter.Fill(this.adatbazisKiskedvDataSet2.BejegyzesekKezelesek);
+            this.bejegyzesekKezelesekTableAdapter1.Fill(this.dbTabelsDataSet.BejegyzesekKezelesek);
+
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
 
         }
 

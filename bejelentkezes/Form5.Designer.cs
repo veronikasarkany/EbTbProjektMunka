@@ -32,7 +32,7 @@
             System.Windows.Forms.Label datumLabel;
             System.Windows.Forms.Label egyebVedooltasokParazitaLabel;
             System.Windows.Forms.Label allatIDLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.buttonF3Back = new System.Windows.Forms.Button();
@@ -45,6 +45,8 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oltasokKezelesekBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbTabelsDataSet1 = new bejelentkezes.dbTabelsDataSet1();
             this.labelTotal = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -70,6 +72,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.oltasokKezelesekBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.oltasokKezelesekTableAdapter1 = new bejelentkezes.dbTabelsDataSet1TableAdapters.OltasokKezelesekTableAdapter();
             datumLabel = new System.Windows.Forms.Label();
             egyebVedooltasokParazitaLabel = new System.Windows.Forms.Label();
             allatIDLabel = new System.Windows.Forms.Label();
@@ -77,6 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingNavigator)).BeginInit();
             this.oltasokKezelesekBindingNavigator.SuspendLayout();
@@ -201,20 +207,20 @@
             this.oltasokKezelesekDataGridView.AutoGenerateColumns = false;
             this.oltasokKezelesekDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.oltasokKezelesekDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.oltasokKezelesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.oltasokKezelesekDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.oltasokKezelesekDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.oltasokKezelesekDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn2});
-            this.oltasokKezelesekDataGridView.DataSource = this.oltasokKezelesekBindingSource;
+            this.oltasokKezelesekDataGridView.DataSource = this.oltasokKezelesekBindingSource1;
             this.oltasokKezelesekDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.oltasokKezelesekDataGridView.Location = new System.Drawing.Point(42, 352);
             this.oltasokKezelesekDataGridView.Name = "oltasokKezelesekDataGridView";
@@ -245,6 +251,16 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Védőoltások & Kezelések";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // oltasokKezelesekBindingSource1
+            // 
+            this.oltasokKezelesekBindingSource1.DataMember = "OltasokKezelesek";
+            this.oltasokKezelesekBindingSource1.DataSource = this.dbTabelsDataSet1;
+            // 
+            // dbTabelsDataSet1
+            // 
+            this.dbTabelsDataSet1.DataSetName = "dbTabelsDataSet1";
+            this.dbTabelsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelTotal
             // 
@@ -397,15 +413,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.oltasokKezelesekBindingNavigatorSaveItem});
-            this.oltasokKezelesekBindingNavigator.Location = new System.Drawing.Point(0, 671);
+            this.oltasokKezelesekBindingNavigatorSaveItem,
+            this.toolStripProgressBar1});
+            this.oltasokKezelesekBindingNavigator.Location = new System.Drawing.Point(0, 667);
             this.oltasokKezelesekBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.oltasokKezelesekBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.oltasokKezelesekBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.oltasokKezelesekBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.oltasokKezelesekBindingNavigator.Name = "oltasokKezelesekBindingNavigator";
             this.oltasokKezelesekBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.oltasokKezelesekBindingNavigator.Size = new System.Drawing.Size(748, 27);
+            this.oltasokKezelesekBindingNavigator.Size = new System.Drawing.Size(748, 31);
             this.oltasokKezelesekBindingNavigator.TabIndex = 1;
             this.oltasokKezelesekBindingNavigator.Text = "bindingNavigator1";
             this.oltasokKezelesekBindingNavigator.RefreshItems += new System.EventHandler(this.oltasokKezelesekBindingNavigator_RefreshItems);
@@ -416,7 +433,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
@@ -516,6 +533,15 @@
             this.oltasokKezelesekBindingNavigatorSaveItem.Text = "Save Data";
             this.oltasokKezelesekBindingNavigatorSaveItem.Click += new System.EventHandler(this.oltasokKezelesekBindingNavigatorSaveItem_Click);
             // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
+            // 
+            // oltasokKezelesekTableAdapter1
+            // 
+            this.oltasokKezelesekTableAdapter1.ClearBeforeFill = true;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -533,6 +559,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adatbazisKiskedvDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTabelsDataSet1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oltasokKezelesekBindingNavigator)).EndInit();
@@ -581,5 +609,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DateTimePicker datumDateTimePicker;
         private System.Windows.Forms.Button buttonF3Back;
+        private dbTabelsDataSet1 dbTabelsDataSet1;
+        private System.Windows.Forms.BindingSource oltasokKezelesekBindingSource1;
+        private dbTabelsDataSet1TableAdapters.OltasokKezelesekTableAdapter oltasokKezelesekTableAdapter1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

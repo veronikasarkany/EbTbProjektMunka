@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 namespace bejelentkezes
@@ -77,8 +78,12 @@ namespace bejelentkezes
 
         private void Form7_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbTabelsDataSet2.Befizetesek' table. You can move, or remove it, as needed.
+            this.befizetesekTableAdapter1.Fill(this.dbTabelsDataSet2.Befizetesek);
             // TODO: This line of code loads data into the 'adatbazisKiskedvDataSet.Befizetesek' table. You can move, or remove it, as needed.
-            this.befizetesekTableAdapter.Fill(this.adatbazisKiskedvDataSet.Befizetesek);
+            this.befizetesekTableAdapter1.Fill(this.dbTabelsDataSet2.Befizetesek);
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
 
         }
 

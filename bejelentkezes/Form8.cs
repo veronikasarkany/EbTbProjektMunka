@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace bejelentkezes
 {
@@ -174,6 +175,12 @@ namespace bejelentkezes
                 MessageBox.Show(ex.Message);
                 con.Close();
             }
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
         }
     }
 

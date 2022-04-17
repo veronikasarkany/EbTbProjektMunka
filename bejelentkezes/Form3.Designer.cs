@@ -92,11 +92,12 @@
             this.panelF3.Controls.Add(this.buttonF3Keres);
             this.panelF3.Controls.Add(this.label1);
             this.panelF3.Controls.Add(this.tableLayoutPanel1);
-            this.panelF3.Location = new System.Drawing.Point(2, 1);
+            this.panelF3.Location = new System.Drawing.Point(1, 1);
             this.panelF3.MinimumSize = new System.Drawing.Size(748, 698);
             this.panelF3.Name = "panelF3";
             this.panelF3.Size = new System.Drawing.Size(748, 698);
             this.panelF3.TabIndex = 0;
+            this.panelF3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelF3_Paint);
             // 
             // tableLayoutPanel5
             // 
@@ -577,6 +578,7 @@
             this.MinimumSize = new System.Drawing.Size(748, 698);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.panelF3.ResumeLayout(false);
             this.panelF3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);

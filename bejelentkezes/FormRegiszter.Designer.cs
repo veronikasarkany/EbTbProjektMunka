@@ -123,7 +123,7 @@
             this.checkbxShowPas.Font = new System.Drawing.Font("Nirmala UI", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkbxShowPas.Location = new System.Drawing.Point(101, 295);
             this.checkbxShowPas.Name = "checkbxShowPas";
-            this.checkbxShowPas.Size = new System.Drawing.Size(153, 21);
+            this.checkbxShowPas.Size = new System.Drawing.Size(140, 19);
             this.checkbxShowPas.TabIndex = 7;
             this.checkbxShowPas.Text = "Jelszó megjelenítése";
             this.checkbxShowPas.UseVisualStyleBackColor = true;
@@ -201,10 +201,11 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRegiszter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegiszter";
+            this.Load += new System.EventHandler(this.FormRegiszter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

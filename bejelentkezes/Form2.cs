@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace bejelentkezes
 {
@@ -165,6 +166,12 @@ namespace bejelentkezes
         {
             //email küldés
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
         }
     }
 }

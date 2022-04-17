@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 
@@ -182,6 +183,12 @@ namespace bejelentkezes
                 con.Close();
             }
             
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
         }
     }
 }

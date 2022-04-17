@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace bejelentkezes
 {
@@ -47,7 +48,7 @@ namespace bejelentkezes
 
 
             //Második variációs bejelentkezés
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand();
             SqlDataAdapter da = new SqlDataAdapter();
             con.Open();
@@ -125,6 +126,12 @@ namespace bejelentkezes
         {
             new FormRegiszter().Show();
             this.Hide();
+        }
+
+        private void Bejelentkezes_Load(object sender, EventArgs e)
+        {
+            //read connstr from the App.Config 
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
         }
     }
 }
