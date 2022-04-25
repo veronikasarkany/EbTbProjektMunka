@@ -308,6 +308,7 @@
             // 
             // panelF3
             // 
+            this.panelF3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelF3.Controls.Add(this.btnSave);
             this.panelF3.Controls.Add(this.btnMod);
             this.panelF3.Controls.Add(this.tableLayoutPanel3);
@@ -318,10 +319,10 @@
             this.panelF3.Controls.Add(this.buttonF3Keres);
             this.panelF3.Controls.Add(this.label1);
             this.panelF3.Controls.Add(this.tableLayoutPanel1);
-            this.panelF3.Location = new System.Drawing.Point(6, 5);
+            this.panelF3.Location = new System.Drawing.Point(-5, -1);
             this.panelF3.MinimumSize = new System.Drawing.Size(782, 698);
             this.panelF3.Name = "panelF3";
-            this.panelF3.Size = new System.Drawing.Size(793, 704);
+            this.panelF3.Size = new System.Drawing.Size(807, 704);
             this.panelF3.TabIndex = 1;
             // 
             // btnSave

@@ -48,7 +48,8 @@ namespace bejelentkezes
 
 
             //Második variációs bejelentkezés
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\bejelentkezes\\bejelentkezes\\db_users.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.db_usersConnectionString"].ToString();
             SqlCommand cmd = new SqlCommand();
             SqlDataAdapter da = new SqlDataAdapter();
             con.Open();
@@ -131,7 +132,7 @@ namespace bejelentkezes
         private void Bejelentkezes_Load(object sender, EventArgs e)
         {
             //read connstr from the App.Config 
-            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ConnectionString;
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.db_usersConnectionString"].ConnectionString;
         }
     }
 }

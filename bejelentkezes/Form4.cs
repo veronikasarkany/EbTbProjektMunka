@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -45,7 +46,8 @@ namespace bejelentkezes
         private void buttonF3K_Click(object sender, EventArgs e)
         {
             //-keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from BejegyzesekKezelesek where AllatID=@AllatID", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -59,8 +61,9 @@ namespace bejelentkezes
         private void buttonF3Back_Click(object sender, EventArgs e)
         {
             // -módosítás gomb-
-            SqlConnection conBejegyzesek = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conBejegyzesek = new SqlConnection();
+            
+            conBejegyzesek.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conBejegyzesek.Open();
 
@@ -81,7 +84,8 @@ namespace bejelentkezes
         private void btnF4Keres_Click(object sender, EventArgs e)
         {
             // - összes gomb -
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from BejegyzesekKezelesek", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -107,7 +111,8 @@ namespace bejelentkezes
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             // -ÁllatID textSearch Box -
-            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con2 = new SqlConnection();
+            con2.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql2 = "select * from BejegyzesekKezelesek where AllatID = '" + txtSearch.Text + "'; ";
             SqlCommand cmd2 = new SqlCommand(sql2, con2);
             SqlDataReader myreader3;
@@ -178,8 +183,9 @@ namespace bejelentkezes
             datumDTP.Format = DateTimePickerFormat.Custom;
             datumDTP.CustomFormat = "yyyy-MM-dd";
 
-            SqlConnection conNewBejegyKez = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conNewBejegyKez = new SqlConnection();
+            
+            conNewBejegyKez.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             conNewBejegyKez.Open();
 
             SqlCommand cmdNewBejegyKez = new SqlCommand("INSERT INTO BejegyzesekKezelesek " +

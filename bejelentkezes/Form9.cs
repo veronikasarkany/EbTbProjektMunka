@@ -23,7 +23,8 @@ namespace bejelentkezes
         public void fillcombobox()
         {
             //Állatok ID mező rész
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql = " select * from Allatok";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -54,10 +55,11 @@ namespace bejelentkezes
             dTpBdate.CustomFormat = "yyyy-MM-dd";
             
 
-            SqlConnection conModAllat = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection conModAllat = new SqlConnection();
+            
+            conModAllat.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
-
-                conModAllat.Open();
+            conModAllat.Open();
 
             SqlCommand cmdModAllat = new SqlCommand("UPDATE Allatok SET " +
                 "AllatID= '" + txtID.Text + "',Neve= '" + txtName.Text + "',SzuletesiIdo= '" + dTpBdate.Text + "',Faj= '" + txtFaj.Text + "',Fajta= '" + txtFajta.Text + "',Ivar= '" + txtIvar.Text + "',Szine= '" + txtSzine.Text + "',KulonlegesIsmertetoJele= '" + txtKIJ.Text + "',IvartalanitasIdopontja='" + dTpIvDate.Text + "',Torzskonyvezett='" + txtTorzs.Text + "' WHERE AllatID= '" + txtID.Text + "'", conModAllat);
@@ -84,7 +86,10 @@ namespace bejelentkezes
         {
             //Mentés úgy néz ki működik
 
-            SqlConnection conNewAllat = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection conNewAllat = new SqlConnection();
+            
+            conNewAllat.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
+
             dTpIvDate.Format = DateTimePickerFormat.Custom;
             dTpIvDate.CustomFormat = "yyyy-MM-dd";
             dTpBdate.Format = DateTimePickerFormat.Custom;
@@ -127,9 +132,10 @@ namespace bejelentkezes
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-             
+
             //Itt tölti be az adatbázist, majd keresi ki az Állatok adatait.
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql = "select * from Allatok where AllatID = '" + comboBox1.Text + "'; ";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -173,14 +179,16 @@ namespace bejelentkezes
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                con.Close();
             }
         }
 
         private void buttonF3Keres_Click(object sender, EventArgs e)
         {
             // -Állat Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-            
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
+
             SqlCommand cmd = new SqlCommand("SELECT * FROM Allatok WHERE AllatID=@AllatID", con);
 
 

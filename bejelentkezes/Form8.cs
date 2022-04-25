@@ -45,8 +45,9 @@ namespace bejelentkezes
 
 
 
-            SqlConnection conRegister = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conRegister = new SqlConnection();
+            
+            conRegister.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conRegister.Open();
 
@@ -107,7 +108,9 @@ namespace bejelentkezes
 
             textBox14.Text = randomnum.ToString();
 
-            SqlConnection conRegister = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection conRegister = new SqlConnection();
+            
+            conRegister.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             conRegister.Open();
 
             SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM Allatok WHERE (AllatID = @AllatID)", conRegister);
@@ -139,8 +142,9 @@ namespace bejelentkezes
         private void buttonF8GID_Click(object sender, EventArgs e)
         {
             // -Gazdi Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-            
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
+
             SqlCommand cmd = new SqlCommand("SELECT * from Gazdik where GazdiID=@GazdiID", con);
 
 

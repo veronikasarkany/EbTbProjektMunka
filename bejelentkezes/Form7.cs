@@ -38,7 +38,8 @@ namespace bejelentkezes
         private void buttonF3K_Click(object sender, EventArgs e)
         {
             //-Keresés Gomb- 
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from Befizetesek where GazdiID=@GazdiID", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -106,8 +107,9 @@ namespace bejelentkezes
         private void button1_Click(object sender, EventArgs e)
         {
             //-Módosítás Gomb- Olyan sorrendbe beírni ahogy a táblázat oszlopai vannak! 
-            SqlConnection conBefiz = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conBefiz = new SqlConnection();
+            
+            conBefiz.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conBefiz.Open();
 
@@ -129,8 +131,9 @@ namespace bejelentkezes
         {
             //-Új bejegyzés, Mentés gomb- Idegen kulcsot ki kellett venni ahhoz, hogy működjön, így most menti az adatokt az adatbázisba!
             
-            SqlConnection conNewBefizet = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conNewBefizet = new SqlConnection();
+            
+            conNewBefizet.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             //dátum formázást  DateTimePicker -így töltődik be megfelelően az adatbázisba a dátum
             datumDateTimePicker.Format = DateTimePickerFormat.Custom;
             datumDateTimePicker.CustomFormat = "yyyy-MM-dd";
@@ -164,7 +167,8 @@ namespace bejelentkezes
         private void btnF7All_Click(object sender, EventArgs e)
         {
             //-Összes Gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from Befizetesek", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -185,7 +189,8 @@ namespace bejelentkezes
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             //-Gazdi textSearch Box-
-            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con2 = new SqlConnection();
+            con2.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql2 = "select * from Befizetesek WHERER GazdiID = '" + txtSearch.Text + "'; ";
             SqlCommand cmd2 = new SqlCommand(sql2, con2);
             SqlDataReader myreader4;

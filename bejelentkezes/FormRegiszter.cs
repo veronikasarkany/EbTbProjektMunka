@@ -21,12 +21,17 @@ namespace bejelentkezes
                     
         }
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Program Files (x86)\\Default Company Name\\EbTbSetup\\db_users.mdf;Integrated Security=True");
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter da = new SqlDataAdapter();
+        
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
+
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter();
+
             if (txtUsername.Text == "" && txtPassword.Text == "" && txtComPassword.Text == "")
             {
                 MessageBox.Show("A Felhasználónév és Jelszó mezők üresek", "A regisztráció meghiúsult", MessageBoxButtons.OK, MessageBoxIcon.Error);

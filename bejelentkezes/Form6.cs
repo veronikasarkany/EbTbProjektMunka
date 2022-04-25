@@ -42,7 +42,8 @@ namespace bejelentkezes
 
         public void fillcombobox()
         {
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql = "select * from Gazdik";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -68,7 +69,8 @@ namespace bejelentkezes
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql = "select * from Gazdik where GazdiId = '" + comboBox1.Text + "'; ";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader myreader;
@@ -108,8 +110,9 @@ namespace bejelentkezes
         {
             // Módosítás még egyenlőre nem működik
 
-            SqlConnection conModGazdi = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conModGazdi = new SqlConnection();
+            
+            conModGazdi.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conModGazdi.Open();
 
@@ -129,8 +132,9 @@ namespace bejelentkezes
         {
             //Mentés egyenlőre működik, de először az Állat adatait kell felvinni, csak utána lehet a Gazdit, mivel összekötettésben vannak
 
-            SqlConnection conNewGazdi = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conNewGazdi = new SqlConnection();
+            
+            conNewGazdi.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conNewGazdi.Open();
 
@@ -146,9 +150,10 @@ namespace bejelentkezes
         private void buttonF3Keres_Click(object sender, EventArgs e)
         {
             // -Gazdi Keresés gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-            //con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * from Gazdik where GazdiID=@GazdiID", con);
+            SqlConnection conGKeres = new SqlConnection();
+            conGKeres.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
+            conGKeres.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * from Gazdik where GazdiID=@GazdiID", conGKeres);
             
 
             cmd.Parameters.AddWithValue("GazdiID", txtSearch.Text);
@@ -157,7 +162,7 @@ namespace bejelentkezes
 
             try
             {
-                con.Open();
+                conGKeres.Open();
                 myreader = cmd.ExecuteReader();
                 while (myreader.Read())
                 {
@@ -180,7 +185,7 @@ namespace bejelentkezes
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                con.Close();
+                conGKeres.Close();
             }
             
         }

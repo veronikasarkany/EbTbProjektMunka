@@ -45,7 +45,8 @@ namespace bejelentkezes
         private void buttonF5K_Click(object sender, EventArgs e)
         {
             //-Összes Gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from OltasokKezelesek", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -67,7 +68,8 @@ namespace bejelentkezes
         private void buttonF3K_Click(object sender, EventArgs e)
         {
             //-Keresés Gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * from OltasokKezelesek where AllatID=@AllatID", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -100,7 +102,8 @@ namespace bejelentkezes
         private void buttonOUJ_Click(object sender, EventArgs e)
         {
             //-Új bejegyzés Gomb-
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             con.Open();
             SqlCommand cmdUjBejgyzes = new SqlCommand("INSERT INTO OltasokKezelesek VALUES (@Datum,@EgyebVedooltasokParazita,@AllatID)", con);
@@ -121,7 +124,8 @@ namespace bejelentkezes
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             //-ÁllatID textSearch Gomb -
-            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
+            SqlConnection con2 = new SqlConnection();
+            con2.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
             string sql2 = "select * from OltasokKezelesek where AllatID = '" + txtSearch.Text + "'; ";
             SqlCommand cmd2 = new SqlCommand(sql2, con2);
             SqlDataReader myreader2;
@@ -155,8 +159,9 @@ namespace bejelentkezes
         private void buttonF3Back_Click(object sender, EventArgs e)
         {
             // -módosítás gomb-
-            SqlConnection conOltasokKezelesek = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=d:\\bejelentkezes\\bejelentkezes\\dbTabels.mdf;Integrated Security=True");
-
+            SqlConnection conOltasokKezelesek = new SqlConnection();
+            
+            conOltasokKezelesek.ConnectionString = ConfigurationManager.ConnectionStrings["bejelentkezes.Properties.Settings.dbTabelsConnectionString"].ToString();
 
             conOltasokKezelesek.Open();
 
@@ -181,8 +186,8 @@ namespace bejelentkezes
             {
                 oltasokKezelesekDataGridView.CurrentRow.Selected = true;
                 datumDateTimePicker.Text = oltasokKezelesekDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                egyebVedooltasokParazitaTextBox.Text = oltasokKezelesekDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-                allatIDTextBox.Text = oltasokKezelesekDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                egyebVedooltasokParazitaTextBox.Text = oltasokKezelesekDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                allatIDTextBox.Text = oltasokKezelesekDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
                 
             }
         }
